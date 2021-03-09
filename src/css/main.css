@@ -1,0 +1,100 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#answer.correct {
+  color: green;
+}
+
+#answer.incorrect {
+  color: red;
+}
+
+#answer {
+  text-align: center;
+}
+
+body {
+  background-color: snow;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.mb-10 {
+  margin-bottom: 10px;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  position: relative;
+  width: 480px;
+  height: 360px;
+  background-image: url("../img/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#pokeImg {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+
+#user-guest {
+  height: 30px;
+  width: 240px;
+  margin-bottom: 10px;
+  font-size: large;
+  text-align: center;
+}
+
+button {
+  height: 30px;
+  width: 120px;
+  background-color: steelblue;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  font-size: medium;
+}
+
+@media (max-width: 400px) {
+  .container {
+    width: 100vw;
+    background-size: cover;
+    height: 300px;
+  }
+
+  #pokeImg {
+    width: 200px;
+    height: 200px;
+    top: 15px;
+    left: 15px;
+  }
+}
+
+p {
+  font-size: x-large;
+}
+
+p.user-answer {
+  height: 30px;
+}

@@ -11,6 +11,8 @@ const HTML_POINTS = document.querySelector("#user-points");
 const HTML_IMG = document.querySelector("#pokeImg");
 const HTML_INPUT = document.querySelector("#user-guest");
 
+let myPokemon = {};
+
 const GAME = {
   _answer: "",
   _points: 0,
@@ -84,24 +86,27 @@ async function getPokemon() {
   }
 }
 
-function createPokemon(pokemon) {
-  GAME.answer = pokemon.name;
+function createPokemon(fetchedPokemon) {
+  myPokemon = fetchedPokemon; 
+  GAME.answer = myPokemon.name;
 
-  setImgUrl(pokemon.sprites.front_default);
+  setImgUrl(myPokemon.sprites.other["official-artwork"].front_default);
+  
   setImgBrightness(0);
   disableInput(false);
   clearText();
+  
 }
 
 function checkAnswer(event) {
   event.preventDefault();
 
-  if (GAME.answer == HTML_INPUT.value) {
-    renderAnswer("Correct! 😁", "correct");
+  if (GAME.answer == HTML_INPUT.value.toLowerCase() ) {
+    renderAnswer("Correct!", "correct");
     GAME.points = GAME.points + 1;
     renderPoints();
   } else {
-    renderAnswer(`Incorrect! 😟 It's ${GAME.answer}!`, "incorrect");
+    renderAnswer(`Incorrect! It's ${GAME.answer}!`, "incorrect");
   }
 }
 
@@ -132,3 +137,4 @@ function setImgUrl(url) {
 function renderPoints() {
   HTML_POINTS.textContent = GAME.points;
 }
+

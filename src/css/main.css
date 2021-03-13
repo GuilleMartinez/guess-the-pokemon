@@ -1,8 +1,16 @@
+:root {
+  --poke-img-size: 170px;
+  --container-pokemon-width: 480px;
+  --container-pokemon-height: 360px;
+}
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
+
+
 
 #answer.correct {
   color: green;
@@ -12,25 +20,9 @@
   color: red;
 }
 
-#answer {
-  text-align: center;
-}
-
 body {
-  background-color: snow;
+  background-color:#f3f6f8;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-.mb-20 {
-  margin-bottom: 20px;
-}
-
-.mb-10 {
-  margin-bottom: 10px;
-}
-
-.mt-10 {
-  margin-top: 10px;
 }
 
 main {
@@ -42,20 +34,24 @@ main {
 
 .container {
   position: relative;
-  width: 480px;
-  height: 360px;
-  background-image: url("../img/background.jpg");
+  width: var(--container-pokemon-width);
+  height: var(--container-pokemon-height);
+  background-image: url("/src/img/background.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
+  margin-bottom: 20px;
+  border-radius: 10px;
 }
 
 #pokeImg {
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
+  width: calc(var(--container-pokemon-width) / 2);
+  height: calc(var(--container-pokemon-height) / 2);
+  object-fit: contain;
+  transform: translate(-5%, -30%);
+  left: 5%;
+  top: 30%;
   position: absolute;
-  top: 40px;
-  left: 40px;
 }
 
 #user-guest {
@@ -76,25 +72,34 @@ button {
   font-size: medium;
 }
 
-@media (max-width: 400px) {
+
+p {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 30px;
+}
+
+#answer {
+  display: block;
+  width: 100%;
+  font-size: 20px;
+}
+
+#points {
+  font-size: 20px;
+}
+
+
+@media (max-width: 380px) {
   .container {
-    width: 100vw;
     background-size: cover;
-    height: 300px;
+    width: 100%;
+    border-radius: 0;
   }
 
   #pokeImg {
-    width: 200px;
-    height: 200px;
-    top: 15px;
-    left: 15px;
+    width: calc(100% / 2);
+    height: calc(100% / 2);
+    left: 0;
   }
-}
-
-p {
-  font-size: x-large;
-}
-
-p.user-answer {
-  height: 30px;
 }

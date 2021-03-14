@@ -36,7 +36,7 @@ main {
   position: relative;
   width: var(--container-pokemon-width);
   height: var(--container-pokemon-height);
-  background-image: url("/src/img/background.jpg");
+  background-image: url("./src/img/background.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

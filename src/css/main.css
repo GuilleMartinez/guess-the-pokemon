@@ -5,6 +5,10 @@
   font-family: Verdana, sans-serif;
 }
 
+body {
+		background-color: #fff6a4;
+}
+
 main {
 	width: 100vw;
 	display: flex;
@@ -43,11 +47,13 @@ main {
 
 .points-paragraph {
 	position: absolute;
+	text-align: center;
 	top: 0;
 	right: 0;
-	width: 100px;
+	width: 120px;
 	font-size: 20px;
 	color: white;
+	background-color: #CC0000;
 }
 
 .content-section {
@@ -94,6 +100,7 @@ form button {
   border-radius: 10px;
   border: none;
   color: white;
+  font-size: large;
 }
 
 form button[type="submit"] {

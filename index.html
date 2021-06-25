@@ -1,37 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pokemone</title>
-
-  <link rel="stylesheet" href="./src/css/main.css" />
-</head>
-
-<body>
-  <main>
-
-    <p id="points" class="mb-10 mt-10">Points: <span id="user-points">0</span></p>
-
-    <h2 class="mb-10">Who's that Pokémon?</h2>
-
-    <p class="mb-10 user-answer"><span id="answer" class="incorrect"></span> </p>
-
-    <div class="container mb-10">
-      <img id="pokeImg" src="" alt="Pokemon" />
-    </div>
-
-    <form action="POST" autocomplete="off">
-      <input id="user-guest" type="text" disabled />
-    </form>
-
-    <button id="retry-btn">Play again</button>
-
-  </main>
-
-  <script src="./src/js/pokemon.js"></script>
-</body>
-
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Guess the pokemon 😁</title>
+      <link rel="stylesheet" href="./src/css/main.css">
+   </head>
+   <body>
+      <main>
+         <div class="container">
+            <div class="img-section">
+               <img class="background" src="./src/img/background.jpg" alt="Game's background">
+               <img id="pokeImg" src="url_from_api" alt="Pokemon Official Artwork" />
+               <p class="points-paragraph">Points: <span id="user-points">0</span></p>
+            </div>
+            <div class="content-section">
+               <div class="header">
+                  <h2 class="title">Who's that Pokémon?</h2>
+                  <p  class="answer-paragraph"><span id="answer" class="incorrect"></span> </p>
+               </div>
+               <div class="form-section">
+                  <form action="POST" autocomplete="off">
+                     <label  for="user-guest">Type the pokemon's name</label>
+                     <input  type="text"   id="user-guest" placeholder="Pikachu" disabled/>
+                     <button type="submit" title="Check Answer">Check answer</button>
+                     <button type="button" title="Try Another" id="retry-btn">Try another</button>
+                  </form>
+               </div>
+            </div>
+         </div>
+      </main>
+      <script src="./src/js/pokemon.js"></script>
+   </body>
 </html>

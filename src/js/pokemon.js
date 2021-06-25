@@ -39,75 +39,50 @@ RETRY_BTN.onclick = getPokemon;
 
 getPokemon();
 
-/*
-    Función asincróna que realizará la petición a la API.
-*/
-
 async function retrievePokemon() {
-  // Generamos un ID aleatorio en base al máximo pókemon.
   const randomID = Math.floor(Math.random() * MAX_POKEMON) + 1;
-
-  // Armamos la url para consultar el pókemon.
   const url = `https://pokeapi.co/api/v2/pokemon/${randomID}`;
-
-  // Esperamos a que la función fetch nos devuelva un valor.
   const response = await fetch(url);
 
-  // Una vez que se ejecuta el fetch confirmamos que haya resuelto correctamente la request.
   if (response.ok) {
-    // Si está todo bien esperamos a que se parsee la respuesta a JSON.
     const pokeJson = await response.json();
-
-    // Una vez parseado lo devolvemos como resultado
     return pokeJson;
   } else {
-    // En caso de no estar correcta la petición, lanzamos un error
-    throw `Ocurrio un error al intentar consultar la API: ${response.status}`;
+    throw response.status;
   }
+
 }
 
-/*
-    La función retrievePokemon es una promesa, por lo que para utilizarla
-    debemos trabajarla dentro de otra función asíncrona.
-*/
-
 async function getPokemon() {
-  // Debido a que retrievePokemon nos lanza un error
-  // utilizamos try-catch para trabajar
-  // Si llega a existir un error (404 por ejemplo), se dispara por alert.
-
   try {
-    // Esperamos hasta obtener un pókemon
     const myPokemon = await retrievePokemon();
-
     createPokemon(myPokemon);
   } catch (err) {
-    alert(err);
+    console.error(err);
   }
 }
 
 function createPokemon(fetchedPokemon) {
-  myPokemon = fetchedPokemon; 
+  myPokemon = fetchedPokemon;
   GAME.answer = myPokemon.name;
-
-  setImgUrl(myPokemon.sprites.other["official-artwork"].front_default);
-  
+  setImgUrl(myPokemon);
   setImgBrightness(0);
   disableInput(false);
   clearText();
-  
 }
 
 function checkAnswer(event) {
   event.preventDefault();
 
-  if (GAME.answer == HTML_INPUT.value.toLowerCase() ) {
+  if (GAME.answer == HTML_INPUT.value.toLowerCase()) {
     renderAnswer("Correct!", "correct");
     GAME.points = GAME.points + 1;
     renderPoints();
   } else {
-    renderAnswer(`Incorrect! It's ${GAME.answer}!`, "incorrect");
+    renderAnswer(`Incorrect! 😢 It's ${GAME.answer}!`, "incorrect");
   }
+
+  setTimeout(getPokemon, 3000);
 }
 
 function renderAnswer(text, type) {
@@ -130,8 +105,8 @@ function clearText() {
   HTML_ANSWER.textContent = "";
 }
 
-function setImgUrl(url) {
-  HTML_IMG.src = url;
+function setImgUrl(pokemon) {
+  HTML_IMG.setAttribute("src", pokemon.sprites.other["official-artwork"].front_default);
 }
 
 function renderPoints() {

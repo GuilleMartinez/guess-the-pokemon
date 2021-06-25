@@ -1,105 +1,119 @@
-:root {
-  --poke-img-size: 170px;
-  --container-pokemon-width: 480px;
-  --container-pokemon-height: 360px;
-}
-
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-}
-
-
-
-#answer.correct {
-  color: green;
-}
-
-#answer.incorrect {
-  color: red;
-}
-
-body {
-  background-color:#f3f6f8;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Verdana, sans-serif;
 }
 
 main {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
+	width: 100vw;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
 }
 
 .container {
+  width: 100vw;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-section {
   position: relative;
-  width: var(--container-pokemon-width);
-  height: var(--container-pokemon-height);
-  background-image: url("../img/background.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  margin-bottom: 20px;
-  border-radius: 10px;
+  width: 600px;
+}
+
+.background {
+  width: 100%;
+  display: block;
+  object-fit: cover;
 }
 
 #pokeImg {
-  width: calc(var(--container-pokemon-width) / 2);
-  height: calc(var(--container-pokemon-height) / 2);
-  object-fit: contain;
-  transform: translate(-5%, -30%);
-  left: 5%;
-  top: 30%;
+  width: 200px;
+  object-fit: cover;
   position: absolute;
+  top: 35%;
+  left: 20%;
+  transform: translate(-20%, -35%);
+}
+
+.points-paragraph {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 100px;
+	font-size: 20px;
+	color: white;
+}
+
+.content-section {
+	padding: 20px;
+    flex-grow: 1;
+}
+
+.content-section .header {
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+.header .title {
+	font-size: 35px;
+}
+
+.header .answer-paragraph {
+	font-size: 18px;
+	height: 20px;
+	width: 100%;
+	padding: 10px;
+}
+
+.form-section form {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
 }
 
 #user-guest {
-  height: 30px;
-  width: 240px;
-  margin-bottom: 10px;
+  height: 40px;
+  padding: 10px;
   font-size: large;
-  text-align: center;
+  transition: font-size .3s ease;
 }
 
-button {
-  height: 30px;
-  width: 120px;
-  background-color: steelblue;
+form button {
+  display: inline-block;
+  height: 40px;
+  width: 200px;
+  margin: 0 auto;
+  border-radius: 10px;
   border: none;
   color: white;
-  border-radius: 10px;
-  font-size: medium;
+}
+
+form button[type="submit"] {
+  background-color: #3B4CCA;
+}
+
+#retry-btn {
+  background-color: #FF0000;
 }
 
 
-p {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  height: 30px;
+@media (max-width: 550px) {
+
+	#pokeImg {
+		width: 150px;
+	}
 }
 
-#answer {
-  display: block;
-  width: 100%;
-  font-size: 20px;
-}
-
-#points {
-  font-size: 20px;
-}
-
-
-@media (max-width: 380px) {
-  .container {
-    background-size: cover;
-    width: 100%;
-    border-radius: 0;
-  }
-
-  #pokeImg {
-    width: calc(100% / 2);
-    height: calc(100% / 2);
-    left: 0;
-  }
+@media (max-width: 350px){
+	#pokeImg{
+		width: 125px;
+	}
 }

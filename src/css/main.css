@@ -6,7 +6,7 @@
 }
 
 body {
-		background-color: #fff6a4;
+		background-color: #FFFFFF;
 }
 
 main {
@@ -14,7 +14,6 @@ main {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-
 }
 
 .container {
@@ -59,6 +58,7 @@ main {
 .content-section {
 	padding: 20px;
     flex-grow: 1;
+    border: 3px solid #FF0000;
 }
 
 .content-section .header {
